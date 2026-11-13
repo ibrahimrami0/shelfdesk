@@ -1,0 +1,12 @@
+{
+  "name": "shelfdesk-reference",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Accessible library desk records prototype with server-side JSON storage",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {"node": ">=18"}
+}

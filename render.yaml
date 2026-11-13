@@ -1,0 +1,22 @@
+# Render Blueprint for the ShelfDesk reference application.
+# WARNING: This creates a PAID web service and persistent disk.
+# Review the price in your Render account before you approve deployment.
+services:
+  - type: web
+    name: shelfdesk-library-demo
+    runtime: node
+    region: frankfurt
+    plan: 0.5c-512mb
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_FILE
+        value: /var/data/books.json
+    disk:
+      name: shelfdesk-library-records
+      mountPath: /var/data
+      sizeGB: 1
